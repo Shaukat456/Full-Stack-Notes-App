@@ -17,17 +17,3 @@ export const getPost = () => {
     }
 }
 
-// export const Create_Post = () => {
-//     return async (dispatch) => {
-//         try {
-//             const { data } = await api.fetchPosts();
-//             dispatch({
-//                 type: "FETCH_ALL",
-//                 payload: data
-//             })
-
-//         } catch (error) {
-//             console.log(error.message)
-//         }
-//     }
-// }
