@@ -1,4 +1,4 @@
-import express from 'express'
+const express = require('express')
 
 const postRoutes= express.Router();
 
@@ -8,5 +8,4 @@ postRoutes.get('/',(req,res)=>{
 })
 
 
-
-export default app;
+module.exports = postRoutes;
