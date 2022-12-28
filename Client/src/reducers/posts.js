@@ -6,6 +6,7 @@ export default  (state=[],action) => {
         //sending this payload to every component 
             return action.payload;
         case 'CREATE_POST':
+            return [...state , action.payload ]
         default:
             return state;
     }
