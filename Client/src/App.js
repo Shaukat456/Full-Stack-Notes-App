@@ -5,12 +5,17 @@ import { Form } from './Components/Form/Form';
 import { useSelector , useDispatch} from 'react-redux'
 import { useEffect } from 'react';
 import { getPost } from './actions/post';
+
 function App() {
+  
+
   const dispatch = useDispatch();
 
   useEffect(()=>{
     dispatch(getPost())
   }, [dispatch ])
+
+
   return (
     <>
     <Container   maxWidth='lg'>
@@ -22,7 +27,6 @@ function App() {
       <Grow in>
         <Container>
 <ButtonBase onClick={()=>{
- 
   dispatch(getPost())
 }}> Click ME  </ButtonBase>
           <Grid container justify='space-between'  alignItems={'stretch'} spacing={4}>
