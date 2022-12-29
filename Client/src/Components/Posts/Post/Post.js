@@ -11,6 +11,7 @@ export const Post = ({postFromGlobalState}) => {
   const { title , creator , message , selectedFile }=postFromGlobalState
   return (
     <div>
+      
       <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
