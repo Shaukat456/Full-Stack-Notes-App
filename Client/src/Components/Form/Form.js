@@ -7,7 +7,7 @@ import { createPost } from '../../actions/post';
 
 export const Form = () => {
 
-  const Dispatch= useDispatch()
+  const dispatch= useDispatch()
 
   const [FormData, SetFormData] = useState({
     title: "",
@@ -26,7 +26,7 @@ export const Form = () => {
       // }
       // console.log({ FormData })
 
-     return  Dispatch(createPost(FormData))
+     return  dispatch(createPost(FormData))
 
 
 
