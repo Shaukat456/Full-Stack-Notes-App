@@ -12,10 +12,10 @@ const dotEnv = require('dotenv')
 dotEnv.config()
 
 
-mongoose.set('strictQuery', false);
+// mongoose.set('strictQuery', false);
 
 const app = express();
-app.use(bodyParser.json({ extended: false }))
+app.use(bodyParser.json({ extended: false , limit:"30mb" }))
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cors())
 

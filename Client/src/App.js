@@ -3,11 +3,11 @@ import {Container, AppBar , Typography , Grow , Grid, Button, ButtonBase} from '
 import { Posts } from './Components/Posts/Posts';
 import { Form } from './Components/Form/Form';
 import { useSelector , useDispatch} from 'react-redux'
-import { useCallback, useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { getPost } from './actions/post';
 
 function App() {
-  
+  const [currentID , setCurrentID] = useState(null)
 
   const dispatch = useDispatch();
 
@@ -35,10 +35,12 @@ useCallback(()=>{
 
           <Grid container justify='space-between'  alignItems={'stretch'} spacing={4}>
         <Grid item xs={12} sm={7}>
-            <Posts/>
+
+            <Posts    setcurrentid={setCurrentID} />
            </Grid>
         <Grid item xs={12} sm={7}>
-            <Form/> 
+
+            <Form currentID={currentID}  setcurrentid={setCurrentID}  /> 
            </Grid>
           </Grid>
         </Container>

@@ -7,11 +7,11 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-export const Post = ({postFromGlobalState}) => {
-  const { title , creator , message , selectedFile }=postFromGlobalState
+export const Post = ({postFromGlobalState , setCurrentId}) => {
+  const { _id, title , creator , message , selectedFile }=postFromGlobalState
+  
   return (
     <div>
-      
       <Card sx={{ maxWidth: 345 }}>
       <CardMedia
         sx={{ height: 140 }}
@@ -28,7 +28,10 @@ export const Post = ({postFromGlobalState}) => {
       </CardContent>
       <CardActions>
         <Button size="small">Delete </Button>
-        <Button size="small">Update</Button>
+        <Button size="small"  onClick={()=>{
+         setCurrentId(_id)
+         console.log(_id)
+        }}>Update</Button>
       </CardActions>
     </Card>
     </div>
