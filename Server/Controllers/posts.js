@@ -24,13 +24,16 @@ const PostMessage = require("../models/postMessage")
             }
    }
  const UpdatePost=async(req,res)=>{
-    const {body }  = req
+    const {id  }  = req.params
+    // id="63ad9ad8d8406781af6e8982"
+    const post= req.body
             try{
-               
+           const response= await PostMessage.findByIdAndUpdate(id ,post , {new:true})
+           return res.send(`has been updated ${response}`)
             }
             catch(err){  
                 res.status(404).send(err)
-                console.log("err" , err)
+                console.log("err" , err)    
             }
    }
 

@@ -1,12 +1,12 @@
 const express = require('express');
-const { getPost, CreatePost  } = require('../Controllers/posts');
+const { getPost, CreatePost, UpdatePost  } = require('../Controllers/posts');
 
 const postRoutes= express.Router();
 
 // inheriting the /posts routes 
 postRoutes.get('/', getPost)
 postRoutes.post('/', CreatePost)
-postRoutes.patch('/' )
+postRoutes.patch('/:id', UpdatePost )
 
 
 

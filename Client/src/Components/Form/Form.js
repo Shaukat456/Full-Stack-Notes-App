@@ -1,13 +1,21 @@
 import { Button, Paper, TextField } from '@mui/material'
 import { Box } from '@mui/system'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import FileBase from 'react-file-base64';
-import { useDispatch } from 'react-redux';
-import { createPost } from '../../actions/post';
+import { useDispatch, useSelector } from 'react-redux';
+import { createPost, updatePost } from '../../actions/post';
 
-export const Form = () => {
+export const Form = ({ currentID, SetCurrentId }) => {
 
-  const dispatch= useDispatch()
+  const dispatch = useDispatch()
+
+  const post = useSelector((state) => {
+    return currentID ? state.posts.find((p) => {
+      return p._id === currentID
+    }) : null
+  })
+  
+
 
   const [FormData, SetFormData] = useState({
     title: "",
@@ -16,18 +24,28 @@ export const Form = () => {
     createdAt: "",
     selectedFile: "",
   })
+  
+  useEffect(() => {
+    console.log("post updated ")
+    // SetFormData(post)
+  },[post])
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    
+
     // Validations 
     // if (FormData.FullName.length <= 0 || FormData.FatherName.length <= 0 || FormData.FullName.length <= 0 & FormData.FatherName.length <= 0) {
-      //   return
-      // }
-      // console.log({ FormData })
+    //   return
+    // }
+    // console.log({ FormData })
 
-     return  dispatch(createPost(FormData))
-
+    if (currentID) {
+      return dispatch(updatePost(currentID, FormData))
+    }
+    else {
+      return dispatch(createPost(FormData))
+    }
 
 
   }
@@ -35,9 +53,7 @@ export const Form = () => {
     <div>
 
       <Paper elevation={0}   >
-        <Box
-
-        >
+        <Box>
           <form onSubmit={handleSubmit} >
 
             <TextField value={FormData.title} variant="outlined" onChange={(inputVal) => {

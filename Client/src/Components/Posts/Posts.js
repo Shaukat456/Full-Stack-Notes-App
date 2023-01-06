@@ -19,7 +19,6 @@ export const Posts = (props) => {
     <div style={{display:'flex'}}>
       {!posts.length ? <CircularProgress/>:(
          posts.map((val)=>{
-          
           return <Post postFromGlobalState={val} setCurrentId={setcurrentid} />
         })
       )}

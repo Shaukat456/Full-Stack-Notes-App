@@ -40,7 +40,7 @@ useCallback(()=>{
            </Grid>
         <Grid item xs={12} sm={7}>
 
-            <Form currentID={currentID}  setcurrentid={setCurrentID}  /> 
+            <Form currentID={currentID}  SetCurrentId={setCurrentID}  /> 
            </Grid>
           </Grid>
         </Container>

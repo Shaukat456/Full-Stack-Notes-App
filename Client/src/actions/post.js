@@ -31,3 +31,18 @@ export const createPost=(Another_Post)=>{
             }
     }
 }
+
+export const updatePost=(id , post)=>{
+    return async (dispatch)=>{
+        const { data } = await api.UpdatePost(id , post)
+            try {
+            dispatch({
+                type: "UPDATE",
+                payload: data
+            })
+                
+            } catch (error) {
+                console.log(error.message)
+            }
+    }
+}
