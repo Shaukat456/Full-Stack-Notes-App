@@ -11,9 +11,6 @@ function App() {
 
   const dispatch = useDispatch();
 
-  // useEffect(()=>{
-   
-  // }, [dispatch ])
 
 useCallback(()=>{
   dispatch(getPost())
